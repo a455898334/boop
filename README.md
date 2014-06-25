@@ -1,6 +1,4 @@
-mean-stack-skeleton
+Boop
 ===================
 
-NodeJS and MongoDB setup instructions:
-
-http://thecodebarbarian.com/2013/07/22/introduction-to-the-mean-stack-part-one-setting-up-your-tools/
+Install and run mongo before running the app
