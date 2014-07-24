@@ -1,18 +1,16 @@
-$(document).ready(function(){
-    var cvs = $(".game")[0];
-    var ctx = cvs.getContext("2d");
+var cvs, ctx;
+function init() {
+    cvs = $(".game")[0];
+    ctx = cvs.getContext("2d");
     window.addEventListener('resize', resizeCanvas, false);
-    
-    function resizeCanvas() {
-        cvs.width = window.innerWidth;
-        cvs.height = window.innerHeight;
-	drawStuff(); 
-    }
-    resizeCanvas();
-    
-    function drawStuff() {
-	ctx.rect(20,20,20,20);
-	ctx.stroke();
-    }
+    cvs.width = window.innerWidth;
+    cvs.height = window.innerHeight;
 }
-);
+
+
+$(document).ready(function(){
+    init();
+    // test code
+    ctx.rect(0,0,20,20);
+    ctx.stroke();
+});
