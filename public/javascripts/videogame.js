@@ -11,6 +11,6 @@ function init() {
 $(document).ready(function(){
     init();
     // test code
-    ctx.rect(0,0,20,20);
+    ctx.rect(20,20,0,0);
     ctx.stroke();
 });
