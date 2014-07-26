@@ -48,7 +48,7 @@ function fire(line){
 
 function advance(line){
     //spawn asteroids
-    if(Math.random() > 0.999){
+    if(Math.random() > 0.99){
         line.html(line.html().replaceAt(101,"0"));
     }
     //advance bullets
