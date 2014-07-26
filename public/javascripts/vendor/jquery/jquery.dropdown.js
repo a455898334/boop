@@ -54,6 +54,7 @@ if (jQuery) (function ($) {
 
         // Show it
         trigger.addClass('dropdown-open');
+        $(".text").addClass('dark-button');
         dropdown
 			.data('dropdown-trigger', trigger)
 			.show();
@@ -98,7 +99,8 @@ if (jQuery) (function ($) {
 
         // Remove all dropdown-open classes
         $(document).find('.dropdown-open').removeClass('dropdown-open');
-
+        $(document).find('.dark-button').removeClass('dark-button');
+        
     }
 
     function position() {
@@ -113,16 +115,16 @@ if (jQuery) (function ($) {
         // Position the dropdown relative-to-parent...
         if (dropdown.hasClass('dropdown-relative')) {
             dropdown.css({
-                left: dropdown.hasClass('dropdown-anchor-right') ?
-					trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
-					trigger.position().left + parseInt(trigger.css('margin-left'), 10) + hOffset,
+                left: 0,//dropdown.hasClass('dropdown-anchor-right') ?
+					//trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
+					//trigger.position().left + parseInt(trigger.css('margin-left'), 10) + hOffset,
                 top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top'), 10) + vOffset
             });
         } else {
             // ...or relative to document
             dropdown.css({
-                left: dropdown.hasClass('dropdown-anchor-right') ?
-					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
+                left: 0, //dropdown.hasClass('dropdown-anchor-right') ?
+					//trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
                 top: trigger.offset().top + trigger.outerHeight() + vOffset
             });
         }
