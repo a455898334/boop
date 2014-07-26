@@ -19,9 +19,10 @@ body {
 .text, #dropdown-1, span{
     font-family: "Courier New", Courier, monospace;
 }
-.sc{
-    /*position: absolute;
-    right: 0px;*/
+.ign{
+    position: absolute;
+    right: 0px;
+    font-size: 20px
 }
 .wrapper{
     position: relative;
@@ -33,10 +34,7 @@ button{
     border-width: 1px;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
+    margin: 0 0 0 0;
     overflow-x: visible;
     overflow-y: visible;
     padding-bottom: 6px;
@@ -47,7 +45,14 @@ button{
     vertical-align: middle;
     font-size:14px;
 }
-
+button:focus {
+    outline:0 !important;
+}
+button:active{
+    outline: 3px !important;
+}
 .dark-button{
     background-color: rgb(200,200,200);
+    border-color: rgb(154, 154, 154);
+    border-width: 2px;
 }
