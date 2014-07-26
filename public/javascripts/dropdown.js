@@ -78,6 +78,7 @@ function advance(line){
         if(line.html().charAt(i) == "0"){
             if(i == 0){
                 alert("Game over");
+                init();
             }else if(line.html().charAt(i-1) == "@"){
                 line.html(line.html().replaceAt(i, "-"));   
                 line.html(line.html().replaceAt(i-1,"+"));
