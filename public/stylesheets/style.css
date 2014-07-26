@@ -1,14 +1,21 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  height: 100%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 100%;
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
 }
 
 .game{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
 }
  
+#dropdown-1{
+    font-family: "Courier New", Courier, monospace;
+}

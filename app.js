@@ -5,7 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , dropdown = require('./routes/dropdown')
   , http = require('http')
   , path = require('path');
 
@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/dropdown', dropdown.game);
 
 http.createServer(app).listen(80, function(){
   console.log('Express server listening on port 80');
