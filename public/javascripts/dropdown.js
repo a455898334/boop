@@ -48,8 +48,8 @@ function fire(line){
 
 function advance(line){
     //spawn asteroids
-    if(Math.random() > 0.99){
-        line.html(line.html().replaceAt(101,"O"));
+    if(Math.random() > 0.999){
+        line.html(line.html().replaceAt(101,"0"));
     }
     //advance bullets
     for(var i = line.html().length-1; i >= 0; i--){
@@ -75,15 +75,15 @@ function advance(line){
     //advance asteroids
     for(var i = 0; i < line.html().length; i++){
         
-        if(line.html().charAt(i) == "O"){
-            if(i = 0){
+        if(line.html().charAt(i) == "0"){
+            if(i == 0){
                 alert("Game over");
             }else if(line.html().charAt(i-1) == "@"){
                 line.html(line.html().replaceAt(i, "-"));   
                 line.html(line.html().replaceAt(i-1,"+"));
             }else{
+                line.html(line.html().replaceAt(i-1,"0"));    
                 line.html(line.html().replaceAt(i, "-"));   
-                line.html(line.html().replaceAt(i-1,"O"));
             }
         }
     }
