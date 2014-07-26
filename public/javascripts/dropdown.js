@@ -1,7 +1,7 @@
 var loc, score;
 
 $(document).ready(function(){
-    $(".text").click(function(){
+    $(".text").one("click", function(){
         alert("Shoot the asteroids by clicking! Each shot costs 1 point, each hit gives you 2.");
         $(".line").hover(
             function(){
@@ -19,7 +19,7 @@ $(document).ready(function(){
         });
         init();
         setInterval(animate,50);
-    })
+    });
 });
 
 function init(){
