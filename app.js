@@ -10,14 +10,14 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
-
+var favicon = require('serve-favicon');
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
 // all environments
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon());
+app.use(express.favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
