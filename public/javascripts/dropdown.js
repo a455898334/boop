@@ -47,10 +47,15 @@ function fire(line){
 }
 
 function advance(line){
+    //spawn asteroids
+    if(Math.random() > 0.99){
+        line.html(line.html().replaceAt(101,"O"));
+    }
+    //advance bullets
     for(var i = line.html().length-1; i >= 0; i--){
+        //console.log("woop");
         if(line.html().charAt(i) == "@"){
             if(i > 100){
-                console.log("boop");
                 line.html(line.html().replaceAt(i,"+"));
             }else{
                 line.html(line.html().replaceAt(i,"-"));
@@ -65,6 +70,21 @@ function advance(line){
         }
         if(line.html().charAt(i) == "+"){
             line.html(line.html().replaceAt(i,"x"));
+        }
+    }
+    //advance asteroids
+    for(var i = 0; i < line.html().length; i++){
+        
+        if(line.html().charAt(i) == "O"){
+            if(i = 0){
+                alert("Game over");
+            }else if(line.html().charAt(i-1) == "@"){
+                line.html(line.html().replaceAt(i, "-"));   
+                line.html(line.html().replaceAt(i-1,"+"));
+            }else{
+                line.html(line.html().replaceAt(i, "-"));   
+                line.html(line.html().replaceAt(i-1,"O"));
+            }
         }
     }
 }
