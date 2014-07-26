@@ -7,7 +7,7 @@
 .dropdown .dropdown-menu,
 .dropdown .dropdown-panel {
 	min-width: 500px;
-	max-width: 100%px;
+	max-width: 100%;
 	list-style: none;
 	background: #FFF;
 	border: solid 1px #DDD;

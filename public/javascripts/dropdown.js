@@ -16,6 +16,10 @@ $(document).ready(function(){
         $(".line").click(function(){
             fire($(this));
         });
+        $("a").click(function(){
+            console.log($(this).html().slice(0,-1) + "&#8681;");
+            $(".text").html($(this).html().slice(0,-1) + "&#8681;");
+        });
         init();
         setInterval(animate,50);
     });
