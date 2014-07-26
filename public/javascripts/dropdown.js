@@ -17,8 +17,7 @@ $(document).ready(function(){
             fire($(this));
         });
         $("a").click(function(){
-            console.log($(this).html().slice(0,-1) + "&#8681;");
-            $(".text").html($(this).html().slice(0,-1) + "&#8681;");
+            $(".text").html($(this).html().slice(0,-1) + "&#8628;");
         });
         init();
         setInterval(animate,50);
