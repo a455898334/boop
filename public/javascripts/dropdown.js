@@ -1,4 +1,4 @@
-var loc;
+var loc, score;
 
 $(document).ready(function(){
     $(".line").hover(
@@ -22,6 +22,7 @@ $(document).ready(function(){
 
 function init(){
     $(".line").html("------------------------------------------------------------------------------------------------------");
+    score = 0;
 }
 
 function animate(){
@@ -51,12 +52,34 @@ function advance(line){
     if(Math.random() > 0.995){
         line.html(line.html().replaceAt(101,"0"));
     }
+    //advance asteroids
+    for(var i = 0; i < line.html().length; i++){
+        if(line.html().charAt(i) == "0"){
+            if(i == 0){
+                alert("Game over! Score: " + score.toString());
+                init();
+            }else if(line.html().charAt(i-1) == "@"){
+                line.html(line.html().replaceAt(i, "-"));   
+                line.html(line.html().replaceAt(i-1,"+"));
+                score++;
+                $(".score").html(score.toString());
+            }else{
+                line.html(line.html().replaceAt(i-1,"0"));    
+                line.html(line.html().replaceAt(i, "-"));   
+            }
+        }
+    }
     //advance bullets
     for(var i = line.html().length-1; i >= 0; i--){
         //console.log("woop");
         if(line.html().charAt(i) == "@"){
             if(i > 100){
                 line.html(line.html().replaceAt(i,"+"));
+            }else if(line.html().charAt(i+1) == "0"){
+                line.html(line.html().replaceAt(i, "-"));   
+                line.html(line.html().replaceAt(i+1,"+"));
+                score++;
+                $(".score").html(score.toString());
             }else{
                 line.html(line.html().replaceAt(i,"-"));
                 line.html(line.html().replaceAt(i+1, "@"));   
@@ -70,22 +93,6 @@ function advance(line){
         }
         if(line.html().charAt(i) == "+"){
             line.html(line.html().replaceAt(i,"x"));
-        }
-    }
-    //advance asteroids
-    for(var i = 0; i < line.html().length; i++){
-        
-        if(line.html().charAt(i) == "0"){
-            if(i == 0){
-                alert("Game over");
-                init();
-            }else if(line.html().charAt(i-1) == "@"){
-                line.html(line.html().replaceAt(i, "-"));   
-                line.html(line.html().replaceAt(i-1,"+"));
-            }else{
-                line.html(line.html().replaceAt(i-1,"0"));    
-                line.html(line.html().replaceAt(i, "-"));   
-            }
         }
     }
 }
