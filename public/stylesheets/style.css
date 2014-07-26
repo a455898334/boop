@@ -16,7 +16,14 @@ body {
     margin: 0;
 }
  
-#dropdown-1{
+.text, #dropdown-1, span{
     font-family: "Courier New", Courier, monospace;
 }
+.sc{
+    position: absolute;
+    right: 0px;
+}
+.wrapper{
+    position: relative;
 
+}

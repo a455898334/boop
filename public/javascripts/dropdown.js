@@ -1,28 +1,31 @@
 var loc, score;
 
 $(document).ready(function(){
-    $(".line").hover(
-        function(){
-            //console.log("hey", $(".line").index(this));
-            addship($(this));
-        },
-        function(){
-            //console.log("listen", $(".line").index(this));
-            removeship($(this));
-        }
-    );    
-
-    $(".line").click(function(){
-        console.log("pew", $(".line").index(this));
-        fire($(this));
-    });
-    init();
-    setInterval(animate,50);
+    $(".text").click(function(){
+        alert("Shoot the asteroids by clicking! Each shot costs 1 point, each hit gives you 2.");
+        $(".line").hover(
+            function(){
+                //console.log("hey", $(".line").index(this));
+                addship($(this));
+            },
+            function(){
+                //console.log("listen", $(".line").index(this));
+                removeship($(this));
+            }
+        );    
+        
+        $(".line").click(function(){
+            fire($(this));
+        });
+        init();
+        setInterval(animate,50);
+    })
 });
 
 function init(){
     $(".line").html("------------------------------------------------------------------------------------------------------");
-    score = 0;
+    score = 5;
+    $(".score").html(score.toString());
 }
 
 function animate(){
@@ -44,7 +47,14 @@ function removeship(line){
 }
 
 function fire(line){
-    line.html(line.html().substring(0,1)+"@"+line.html().substring(2));
+    if(score > 0){
+        $(".sc").css('color', 'black');
+        score -= 1;
+        $(".score").html(score.toString());
+        line.html(line.html().substring(0,1)+"@"+line.html().substring(2));
+    }else{
+        $(".sc").css('color', 'red');
+    }
 }
 
 function advance(line){
@@ -61,7 +71,7 @@ function advance(line){
             }else if(line.html().charAt(i-1) == "@"){
                 line.html(line.html().replaceAt(i, "-"));   
                 line.html(line.html().replaceAt(i-1,"+"));
-                score++;
+                score += 2;
                 $(".score").html(score.toString());
             }else{
                 line.html(line.html().replaceAt(i-1,"0"));    
@@ -78,7 +88,7 @@ function advance(line){
             }else if(line.html().charAt(i+1) == "0"){
                 line.html(line.html().replaceAt(i, "-"));   
                 line.html(line.html().replaceAt(i+1,"+"));
-                score++;
+                score += 2;
                 $(".score").html(score.toString());
             }else{
                 line.html(line.html().replaceAt(i,"-"));
