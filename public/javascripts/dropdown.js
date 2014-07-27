@@ -69,8 +69,8 @@ function advance(line){
         if(line.html().charAt(i) == "K"){
             if(i <= 1){
                 alert("Game over! Score: " + score.toString());
-                $('meta[property="og:title"]').attr("content", "I just scored " + score.toString() + " points on Dropdown Space Shooter");
-                window.open("https://www.facebook.com/sharer/sharer.php?u=theytookmydomain.net/dropdown");
+                //$('meta[property="og:title"]').attr("content", "I just scored " + score.toString() + " points on Dropdown Space Shooter");
+                //window.open("https://www.facebook.com/sharer/sharer.php?u=theytookmydomain.net/dropdown");
                 init();
             }else if(line.html().charAt(i-1) == "O"){
                 line.html(line.html().replaceAt(i, "-"));   
